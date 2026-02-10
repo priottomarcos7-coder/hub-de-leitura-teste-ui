@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/priottomarcos7-coder/hub-de-leitura-teste-ui#readme",
   "dependencies": {
+    "@faker-js/faker": "^10.3.0",
     "cypress": "^15.10.0"
   }
 }
