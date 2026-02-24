@@ -21,7 +21,7 @@ describe('Funcionalidade: Login', () => {
         cy.login('admin@biblioteca.com', 'admin123')
     });
 
-    it.only('Deve fazer login com sucesso - Usando importação da massa de dados', () => {
+    it('Deve fazer login com sucesso - Usando importação da massa de dados', () => {
         cy.login(user.email, user.senha)
     });
 });
