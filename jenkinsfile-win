@@ -48,7 +48,7 @@ pipeline {
             }
     }
 
-    post {
+    stage ('publicar') post {
          always {
             bat 'taskkill /F /IM node.exe || exit 0'
          }
