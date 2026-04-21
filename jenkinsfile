@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    tools { nodejs "nodejs"}
+
+    satages {
+
+        satage("Clonar o hub de leitura integrado") {
+            steps {
+                sh 'git clone https://github.com/priottomarcos7-coder/hub-de-leitura-teste-ui.git'
+            }
+        }
+
+        satage("Instalar dependências do projeto") {
+            steps {
+                dir ('hub-de-leitura-teste-ui') {
+                    sh 'npm install'
+                    sh 'npm start'
+                }
+            }
+        }
+    }
+}
