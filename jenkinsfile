@@ -10,6 +10,7 @@ pipeline {
 
         stage('Rodar Cypress') {
             steps {
+                bat git clone https://github.com/priottomarcos7-coder/hub-de-leitura-teste-ui.git
                 bat 'npx cypress run'
             }
         }
