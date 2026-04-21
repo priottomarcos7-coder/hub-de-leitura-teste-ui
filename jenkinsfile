@@ -1,18 +1,29 @@
 pipeline {
     agent any
+    tools { nodejs 'nodejs'}
 
     stages {
-        stage('Instalar dependências') {
+        stage('Clonar o hub de leitura integrado') {
             steps {
-                bat 'npm install'
+                sh 'rm -rf hub-de-leitura-teste-ui || true'
+                sh 'git clone https://github.com/priottomarcos7-coder/hub-de-leitura-teste-ui.git'
             }
         }
 
-        stage('Rodar Cypress') {
+        stage('Instalar dependências do projeto') {
             steps {
-                bat git clone https://github.com/priottomarcos7-coder/hub-de-leitura-teste-ui.git
-                bat 'npx cypress run'
+                dir('hub-de-leitura-teste-ui') {
+                    sh 'npm install'
+                    sh 'npm start'
+                }
             }
         }
     }
+
+    post {
+         always {
+            sh 'pkill -f "node" || true'
+         }
+    }
+
 }
