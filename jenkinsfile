@@ -8,18 +8,6 @@ pipeline {
             }
         }
 
-        stage('Subir aplicação') {
-            steps {
-                bat 'start /B npm start'
-            }
-        }
-
-        stage('Aguardar servidor') {
-            steps {
-                bat 'timeout /t 10'
-            }
-        }
-
         stage('Rodar Cypress') {
             steps {
                 bat 'npx cypress run'
