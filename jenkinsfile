@@ -6,15 +6,15 @@ pipeline {
 
         stage("Clonar o hub de leitura integrado") {
             steps {
-                sh 'git clone https://github.com/priottomarcos7-coder/hub-de-leitura-teste-ui.git'
+                bat 'git clone https://github.com/priottomarcos7-coder/hub-de-leitura-teste-ui.git'
             }
         }
 
         stage("Instalar dependências do projeto") {
             steps {
                 dir ('hub-de-leitura-teste-ui') {
-                    sh 'npm install'
-                    sh 'npm start'
+                    bat 'npm install'
+                    bat 'npm start'
                 }
             }
         }
