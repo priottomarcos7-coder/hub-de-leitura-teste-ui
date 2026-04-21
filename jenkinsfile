@@ -10,7 +10,7 @@ pipeline {
             }
         }
 
-        satage("Instalar dependências do projeto") {
+        stage("Instalar dependências do projeto") {
             steps {
                 dir ('hub-de-leitura-teste-ui') {
                     sh 'npm install'
