@@ -58,7 +58,7 @@ describe('Funcionalidade: Cadastro no Hub de Leitura', () => {
         cy.url().should('include', 'dashboard')
     });
 
-    it.only('Deve validar mensagem ao tentar cadastrar sem preencher nome', () => {
+    it('Deve validar mensagem ao tentar cadastrar sem preencher nome', () => {
         cadastroPage.preencherCadastro('', 'vini@teste.com','11987654321', 'Teste@123', 'Teste@123')
         cy.get(':nth-child(1) > .invalid-feedback').should('contain', 'Nome deve ter pelo menos 2 caracteres')
     });

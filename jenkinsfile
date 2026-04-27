@@ -12,7 +12,7 @@ pipeline {
 
         sh 'rm -rf hub-de-leitura-integrado || true'
 
-        sh 'git clone https://github.com/priottomarcos7-coder/hub-de-leitura-integrado.git'
+        sh 'git clone --depth 1 https://github.com/priottomarcos7-coder/hub-de-leitura-integrado.git'
 
       }
 
@@ -40,7 +40,7 @@ pipeline {
 
         sh 'rm -rf hub-de-leitura-teste-ui || true'
 
-        sh 'git clone https://github.com/priottomarcos7-coder/hub-de-leitura-teste-ui.git'
+        sh 'git clone --depth 1 https://github.com/priottomarcos7-coder/hub-de-leitura-teste-ui.git'
 
       }
 
@@ -79,7 +79,7 @@ pipeline {
   post {
 
     always {
-
+      archiveArtifacts artifacts: 'cypress/screenshots/**/*.*, cypress/videos/**/*.*', allowEmptyArchive: true
       sh 'pkill -f "node" || true'
 
     }
